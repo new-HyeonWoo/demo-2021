@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: ""
+  profiles:
+    active: dev
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: true
+
+server:
+  compression:
+    enabled: false
+    mime-types:
+  ssl:
+    enabled: false
