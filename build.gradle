@@ -17,7 +17,6 @@ configurations {
 repositories {
 	mavenCentral()
 }
-
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
@@ -28,6 +27,17 @@ dependencies {
 	//swagger
 	implementation 'io.springfox:springfox-swagger2:2.9.2'
 	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+
+	//Srpign Data JPA
+	//스프링 부트용 Spring Data Jpa 추상화 라이브러리
+	//스프링 부트 버전에 맞춰 자동으로 JPA관련 라이브러리들의 버전을 관리해준다.
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	//H2
+	//인메모리 관계형 데이터베이스
+	//별도의 설치가 필요 없이 프로젝트 의존성만으로 관리할 수 있다.
+	//메모리에서 실행되기 때문에 애플리케이션 재시작할 때마다 초기화된다.
+	implementation 'com.h2database:h2'
 }
 
 test {

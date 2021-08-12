@@ -18,7 +18,6 @@ public class SwaggerConfiguration {
 
     /**
      * 스웨거 API 문서 생성
-     * @return
      */
     @Bean
     public Docket swaggerApi() {
@@ -37,7 +36,6 @@ public class SwaggerConfiguration {
     /**
      * 스웨거 정보
      * (Docket 클래스를 만들때 추가하는 정보)
-     * @return
      */
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
