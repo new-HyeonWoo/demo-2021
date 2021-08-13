@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import com.example.demo.user.constant.GenderType;
+import com.example.demo.user.constant.UserStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,24 +27,27 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@Column(nullable = false, unique = true)
+	@Column(unique = true)
 	private String userId;
 
-	@Column(nullable = false)
+	@Column
 	private String name;
 
-	@Column(nullable = false)
+	@Column
 	private String email;
 
-	@Column(nullable = false)
+	@Column
 	private String phoneNumber;
 
-	@Column(nullable = false)
+	@Column
 	private String address;
 
-	@Column(nullable = false)
+	@Column
 	private GenderType gender;
 
 	@Column
 	private String birthday;
+
+	@Column
+	private UserStatus status;
 }

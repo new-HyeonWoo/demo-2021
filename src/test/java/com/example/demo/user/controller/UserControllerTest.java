@@ -3,6 +3,7 @@ package com.example.demo.user.controller;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,12 @@ class UserControllerTest {
 	@Autowired
 	private ObjectMapper objectMapper;
 
+	@BeforeAll
+	public void before() {
+
+	}
+
+
 	@Test
 	public void test() throws Exception {
 		mvc.perform(get("/test"))
@@ -60,5 +67,12 @@ class UserControllerTest {
 
 		System.out.println(result.getResponse().getContentAsString());
 	}
+
+	@Test
+	public void user_update() throws Exception {
+		System.out.println("******* START : user_update() **********");
+
+	}
+
 
 }
