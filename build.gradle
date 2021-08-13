@@ -24,6 +24,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+	testImplementation 'org.projectlombok:lombok'
+
 	//swagger
 	implementation 'io.springfox:springfox-swagger2:2.9.2'
 	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
@@ -38,6 +40,15 @@ dependencies {
 	//별도의 설치가 필요 없이 프로젝트 의존성만으로 관리할 수 있다.
 	//메모리에서 실행되기 때문에 애플리케이션 재시작할 때마다 초기화된다.
 	implementation 'com.h2database:h2'
+
+	//validation
+	implementation 'javax.validation:validation-api:'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc3:1.14'
+
+	//ModelMapper (https://velog.io/@kimview/ModelMapper)
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.3.8'
 }
 
 test {

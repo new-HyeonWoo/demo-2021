@@ -22,7 +22,7 @@ spring:
     password:
   # Hibernate
   jpa:
-    show-sql: true
+    show-sql: true  #jpa 콘솔 쿼리 로그확인
 
 server:
   compression:
