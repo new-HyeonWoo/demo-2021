@@ -33,10 +33,10 @@ class UserControllerTest {
 	@Autowired
 	private ObjectMapper objectMapper;
 
-	@BeforeAll
-	public void before() {
-
-	}
+	// @BeforeAll
+	// public void before() {
+	//
+	// }
 
 
 	@Test
@@ -71,7 +71,36 @@ class UserControllerTest {
 	@Test
 	public void user_update() throws Exception {
 		System.out.println("******* START : user_update() **********");
+	}
 
+	@Test
+	public void findUserAll() throws Exception {
+
+		String content = objectMapper.writeValueAsString(UserSaveRequestDto.builder()
+			.userId("test1")
+			.name("최현우")
+			.email("chlgusdn3@naver.com")
+			.phoneNumber("010-2481-1015")
+			.address("서울특별시")
+			.gender(GenderType.MALE)
+			.birthday("19901015")
+			.build());
+
+		MvcResult save = mvc.perform(put("/user")
+				.content(content)
+				.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk()) //status검증
+			.andReturn();
+
+		System.out.println(save.getResponse().getContentAsString());
+
+		System.out.println("******* START : findUserAll() **********");
+		MvcResult result = mvc.perform(get("/users"))
+			.andExpect(status().isOk())
+			.andReturn();
+
+		System.out.println("****** Response Body ******");
+		System.out.println(result.getResponse().getContentAsString());
 	}
 
 

@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public enum UserStatus {
-	ACTIVE("ACTIVE", "활성"),
+	ACTIVE("ACTIVE", "활성 계정"),
 	IN_ACTIVE("IN_ACTIVE", "휴먼 계정"),
 	DELETE("DELETE", "삭제 계정"),
 	;

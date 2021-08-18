@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,6 +29,9 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
+	@Column
+	private String password;
+
 	@Column(unique = true)
 	private String userId;
 
@@ -48,6 +53,7 @@ public class User {
 	@Column
 	private String birthday;
 
+	@Enumerated(EnumType.STRING)
 	@Column
 	private UserStatus status;
 }

@@ -1,29 +1,19 @@
 package com.example.demo.user.service;
 
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
 import com.example.demo.user.domain.User;
-import com.example.demo.user.domain.UserRepository;
 import com.example.demo.user.dto.req.UserSaveRequestDto;
 import com.example.demo.user.dto.req.UserUpdateRequestDto;
 
-import lombok.RequiredArgsConstructor;
+public interface UserService {
 
-@RequiredArgsConstructor
-@Service
-public class UserService {
+	public User saveUser(UserSaveRequestDto requestDto);
 
-	private final UserRepository userRepository;
+	public User updateUser(Long id, UserUpdateRequestDto requestDto);
 
-	@Transactional
-	public User saveUser(UserSaveRequestDto requestDto) {
-		return userRepository.save(requestDto.toEntity());
-	}
+	public List<User> findUserAll();
 
-	@Transactional
-	public User updateUser(UserUpdateRequestDto requestDto) {
-		return userRepository.save(requestDto.toEntity());
-	}
+	public User findUserById(Long id);
 
 }

@@ -30,7 +30,6 @@ class UserRepositoryTest {
 
 	@Test
 	public void 회원정보_수정() {
-
 		String userId = "test";
 		String name = "홍길동";
 		String email = "chlgusdn3@naver.com";
@@ -59,9 +58,5 @@ class UserRepositoryTest {
 
 		assertEquals(1, userList.size());
 		assertEquals(changeName, userList.get(0).getName());
-
 	}
-
-
-
 }

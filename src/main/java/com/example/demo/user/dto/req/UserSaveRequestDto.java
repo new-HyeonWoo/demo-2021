@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Getter;
 
-@ApiModel(value = "회원정보", description = "아아디, 이름, 이메일, 휴대폰, 주소, 성별, 생일을 가진 Domain Class")
+@ApiModel(value = "회원 정보 저장 dto", description = "아아디, 이름, 이메일, 휴대폰, 주소, 성별, 생일을 가진 Domain Class")
 @Builder
 @Getter
 public class UserSaveRequestDto {
@@ -22,6 +22,10 @@ public class UserSaveRequestDto {
 	@ApiModelProperty(value = "사용자 아이디", required = true)
 	@NotBlank(message = "아이디를 작성해주세요.")
 	private String userId;
+
+	@ApiModelProperty(value = "사용자 비밀번호", required = true)
+	@NotBlank(message = "비밀번호를 작성해주세요.")
+	private String password;
 
 	@ApiModelProperty(value = "이름", required = true)
 	@NotBlank(message = "이름을 작성해주세요.")
@@ -53,6 +57,7 @@ public class UserSaveRequestDto {
 		return User.builder()
 			.userId(userId)
 			.name(name)
+			.password(password)
 			.email(email)
 			.phoneNumber(phoneNumber)
 			.address(address)

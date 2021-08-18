@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import lombok.Builder;
+import lombok.Getter;
 
+@Getter
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResultResponse<T> {

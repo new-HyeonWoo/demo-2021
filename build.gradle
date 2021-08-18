@@ -48,7 +48,14 @@ dependencies {
 	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc3:1.14'
 
 	//ModelMapper (https://velog.io/@kimview/ModelMapper)
+	//RequsetDto -> entity(model) || entity(model) -> ResponseDto
 	implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.3.8'
+
+	//Spring Security
+	implementation "org.springframework.boot:spring-boot-starter-security"
+	implementation 'org.springframework.security:spring-security-web:5.1.5.RELEASE'
+	implementation 'org.springframework.security:spring-security-config:5.1.5.RELEASE'
+
 }
 
 test {

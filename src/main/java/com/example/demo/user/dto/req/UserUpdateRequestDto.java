@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Getter;
 
-@ApiModel(value = "회원정보", description = "아아디, 이름, 이메일, 휴대폰, 주소, 성별, 생일을 가진 Domain Class")
+@ApiModel(value = "회원 정보 수정 dto", description = "아아디, 이름, 이메일, 휴대폰, 주소, 성별, 생일을 가진 Domain Class")
 @Builder
 @Getter
 public class UserUpdateRequestDto {
@@ -22,6 +22,10 @@ public class UserUpdateRequestDto {
 	@ApiModelProperty(value = "사용자 고유 아이디", required = true)
 	@NotBlank(message = "아이디값은 필수입니다.")
 	private long id;
+
+	@ApiModelProperty(value = "사용자 비밀번호", required = true)
+	@NotBlank(message = "비밀번호를 작성해주세요.")
+	private String password;
 
 	@ApiModelProperty(value = "이메일", required = true)
 	@Email(message = "메일의 양식을 지켜주세요.")
@@ -50,6 +54,7 @@ public class UserUpdateRequestDto {
 	public User toEntity() {
 		return User.builder()
 			.id(id)
+			.password(password)
 			.email(email)
 			.phoneNumber(phoneNumber)
 			.address(address)
