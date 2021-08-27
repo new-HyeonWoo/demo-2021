@@ -56,6 +56,10 @@ dependencies {
 	implementation 'org.springframework.security:spring-security-web:5.1.5.RELEASE'
 	implementation 'org.springframework.security:spring-security-config:5.1.5.RELEASE'
 
+	//HttpClientBuilder
+	implementation 'org.apache.httpcomponents:httpclient:4.5.10'
+	implementation 'com.google.code.gson:gson:2.8.5'
+
 }
 
 test {
