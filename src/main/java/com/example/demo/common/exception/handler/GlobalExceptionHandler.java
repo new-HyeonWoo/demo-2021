@@ -17,8 +17,8 @@ public class GlobalExceptionHandler {
 
 	@ExceptionHandler(SampleException.class)
 	public ResponseEntity<ErrorResponse> handleEmailDuplicateException(SampleException ex){
-		log.error("SampleException : {}",ex);
-		ErrorResponse response = new ErrorResponse(ex.getErrorCode());
-		return new ResponseEntity<>(response, HttpStatus.valueOf(ex.getErrorCode().getStatus()));
+		log.error("SampleException: {}", ex);
+		ErrorResponse response = ErrorResponse.of(ex.getErrorCode());
+		return new ResponseEntity<>(response, HttpStatus.valueOf(response.getStatus()));
 	}
 }
