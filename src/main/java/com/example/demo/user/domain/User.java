@@ -1,6 +1,7 @@
 package com.example.demo.user.domain;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +10,13 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.jpa.repository.Temporal;
+
+import com.example.demo.common.constant.auth.UserRole;
 import com.example.demo.user.constant.GenderType;
 import com.example.demo.user.constant.UserStatus;
 
@@ -56,4 +63,17 @@ public class User {
 	@Enumerated(EnumType.STRING)
 	@Column
 	private UserStatus status;
+
+	@Column(name = "role")
+	@Enumerated(EnumType.STRING)
+	private UserRole role = UserRole.ROLE_NOT_PERMITTED;
+
+	// @Temporal(TemporalType.DATE)
+	// @CreationTimestamp
+	// private Date createAt;
+	//
+	// @Temporal(TemporalType.TIMESTAMP)
+	// @UpdateTimestamp
+	// private Date updateAt;
+
 }

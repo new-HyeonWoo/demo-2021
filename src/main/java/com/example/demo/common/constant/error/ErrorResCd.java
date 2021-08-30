@@ -1,4 +1,4 @@
-package com.example.demo.common.constant;
+package com.example.demo.common.constant.error;
 
 import com.example.demo.common.utils.ResponseCode;
 

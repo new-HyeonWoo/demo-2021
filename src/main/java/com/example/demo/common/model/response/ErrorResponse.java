@@ -1,9 +1,8 @@
 package com.example.demo.common.model.response;
 
-import com.example.demo.common.constant.ErrorCode;
+import com.example.demo.common.constant.error.ErrorCode;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 
 @Getter
