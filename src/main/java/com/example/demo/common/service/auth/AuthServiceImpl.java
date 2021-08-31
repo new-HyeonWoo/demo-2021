@@ -1,4 +1,4 @@
-package com.example.demo.common.service;
+package com.example.demo.common.service.auth;
 
 import java.util.Optional;
 

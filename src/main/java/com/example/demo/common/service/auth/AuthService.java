@@ -1,4 +1,4 @@
-package com.example.demo.common.service;
+package com.example.demo.common.service.auth;
 
 import com.example.demo.member.domain.Member;
 

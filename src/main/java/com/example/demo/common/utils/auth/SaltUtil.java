@@ -1,9 +1,10 @@
 package com.example.demo.common.utils.auth;
 
 import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Service
+@Component
 public class SaltUtil {
 
 	public String encodePassword(String salt, String password){
