@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.common.config.security.CustomUserDetailService;
 import com.example.demo.common.constant.error.ErrorCode;
 import com.example.demo.common.exception.SampleException;
 import com.example.demo.common.utils.auth.Salt;
