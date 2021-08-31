@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * RequestDto -> model / model -> ResponseDto 변환시 사용
+ * Dto to Model || Model to Dto
  */
 @Configuration
 public class ModelMapperConfig {

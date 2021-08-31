@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 public class GlobalExceptionHandler {
 
 	@ExceptionHandler(SampleException.class)
-	public ResponseEntity<ErrorResponse> handleEmailDuplicateException(SampleException ex){
+	public ResponseEntity<ErrorResponse> handleException(SampleException ex){
 		log.error("SampleException: {}", ex);
 		ErrorResponse response = ErrorResponse.of(ex.getErrorCode());
 		return new ResponseEntity<>(response, HttpStatus.valueOf(response.getStatus()));

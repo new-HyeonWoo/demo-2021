@@ -9,6 +9,11 @@ public class SampleException extends RuntimeException {
 
 	private ErrorCode errorCode;
 
+	public SampleException(ErrorCode errorCode) {
+		super("");
+		this.errorCode = errorCode;
+	}
+
 	public SampleException(String message, ErrorCode errorCode){
 		super(message);
 		this.errorCode = errorCode;
