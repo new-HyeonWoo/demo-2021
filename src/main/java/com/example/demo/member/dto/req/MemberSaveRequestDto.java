@@ -1,12 +1,12 @@
-package com.example.demo.user.dto.req;
+package com.example.demo.member.dto.req;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import com.example.demo.user.constant.GenderType;
-import com.example.demo.user.constant.UserStatus;
-import com.example.demo.user.domain.User;
+import com.example.demo.member.constant.GenderType;
+import com.example.demo.member.constant.MemberStatus;
+import com.example.demo.member.domain.Member;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import io.swagger.annotations.ApiModel;
@@ -17,7 +17,7 @@ import lombok.Getter;
 @ApiModel(value = "회원 정보 저장 dto", description = "아아디, 이름, 이메일, 휴대폰, 주소, 성별, 생일을 가진 Domain Class")
 @Builder
 @Getter
-public class UserSaveRequestDto {
+public class MemberSaveRequestDto {
 
 	@ApiModelProperty(value = "사용자 아이디", required = true)
 	@NotBlank(message = "아이디를 작성해주세요.")
@@ -53,8 +53,8 @@ public class UserSaveRequestDto {
 	@JsonFormat(pattern = "yyyyMMdd")
 	private String birthday;
 
-	public User toEntity() {
-		return User.builder()
+	public Member toEntity() {
+		return Member.builder()
 			.userId(userId)
 			.name(name)
 			.password(password)
@@ -63,7 +63,7 @@ public class UserSaveRequestDto {
 			.address(address)
 			.gender(gender)
 			.birthday(birthday)
-			.status(UserStatus.ACTIVE)
+			.status(MemberStatus.ACTIVE)
 			.build();
 	}
 }

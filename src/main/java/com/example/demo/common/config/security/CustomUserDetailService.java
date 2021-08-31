@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.user.service.UserService;
+import com.example.demo.member.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -21,7 +21,7 @@ public class CustomUserDetailService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(@NotNull String username) throws UsernameNotFoundException {
-		return Optional.ofNullable(userService.findUserByEmail(username))
+		return Optional.ofNullable(new CustomUserDetail(userService.findUserByEmail(username)))
 			.orElseThrow(() -> new UsernameNotFoundException("Not Found User"));
 	}
 }

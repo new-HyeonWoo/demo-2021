@@ -1,4 +1,4 @@
-package com.example.demo.user.controller;
+package com.example.demo.member.controller;
 
 import javax.validation.Valid;
 
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.common.model.response.ResultResponse;
-import com.example.demo.user.dto.req.UserSaveRequestDto;
-import com.example.demo.user.dto.req.UserUpdateRequestDto;
-import com.example.demo.user.dto.res.UserResponseDto;
-import com.example.demo.user.service.UserService;
+import com.example.demo.member.dto.req.MemberSaveRequestDto;
+import com.example.demo.member.dto.req.MemberUpdateRequestDto;
+import com.example.demo.member.dto.res.MemberResponseDto;
+import com.example.demo.member.service.UserService;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -25,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-public class UserController {
+public class MemberController {
 
 	private final ModelMapper modelMapper;
 
@@ -38,10 +38,10 @@ public class UserController {
 
 	@ApiOperation(value = "회원정보 저장", notes = "회원정보를 저장한다.")
 	@PostMapping("/user")
-	public ResultResponse saveUser(@RequestBody @Valid UserSaveRequestDto requestDto) {
+	public ResultResponse saveUser(@RequestBody @Valid MemberSaveRequestDto requestDto) {
 		return ResultResponse.builder()
 			.success(true)
-			.data(modelMapper.map(userService.saveUser(requestDto), UserResponseDto.class))
+			.data(modelMapper.map(userService.saveUser(requestDto), MemberResponseDto.class))
 			.build();
 	}
 
@@ -50,10 +50,10 @@ public class UserController {
 	public ResultResponse updateUser(
 		@ApiParam(value = "사용자 고유번호", required = true)
 		@PathVariable Long id,
-		@RequestBody @Valid UserUpdateRequestDto requestDto) {
+		@RequestBody @Valid MemberUpdateRequestDto requestDto) {
 		return ResultResponse.builder()
 			.success(true)
-			.data(modelMapper.map(userService.updateUser(id, requestDto), UserResponseDto.class))
+			.data(modelMapper.map(userService.updateUser(id, requestDto), MemberResponseDto.class))
 			.build();
 	}
 
@@ -62,7 +62,7 @@ public class UserController {
 	public ResultResponse findUserAll() {
 		return ResultResponse.builder()
 			.success(true)
-			.data(modelMapper.map(userService.findUserAll(), UserResponseDto.class))
+			.data(modelMapper.map(userService.findUserAll(), MemberResponseDto.class))
 			.build();
 	}
 
@@ -73,7 +73,7 @@ public class UserController {
 		@PathVariable Long id) {
 		return ResultResponse.builder()
 			.success(true)
-			.data(modelMapper.map(userService.findUserById(id), UserResponseDto.class))
+			.data(modelMapper.map(userService.findUserById(id), MemberResponseDto.class))
 			.build();
 	}
 }

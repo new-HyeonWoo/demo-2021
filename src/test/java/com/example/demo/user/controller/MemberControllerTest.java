@@ -3,7 +3,6 @@ package com.example.demo.user.controller;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +13,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import com.example.demo.user.constant.GenderType;
-import com.example.demo.user.dto.req.UserSaveRequestDto;
+import com.example.demo.member.constant.GenderType;
+import com.example.demo.member.dto.req.MemberSaveRequestDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 @AutoConfigureMockMvc
 // @WebMvcTest(controllers = UserController.class)
 @SpringBootTest
-class UserControllerTest {
+class MemberControllerTest {
 
 	@Autowired //스프링이 관리하는 빈 주입을 받는다.
 	private MockMvc mvc; // 웹 API 테스트 시 사용(HTTP GET, POST), 스프링 MVC의 시작
@@ -49,7 +48,7 @@ class UserControllerTest {
 	@Test
 	public void user_save() throws Exception {
 		System.out.println("******* START : user_save() **********");
-		String content = objectMapper.writeValueAsString(UserSaveRequestDto.builder()
+		String content = objectMapper.writeValueAsString(MemberSaveRequestDto.builder()
 			.userId("test1")
 			.name("최현우")
 			.email("chlgusdn3@naver.com")
@@ -76,7 +75,7 @@ class UserControllerTest {
 	@Test
 	public void findUserAll() throws Exception {
 
-		String content = objectMapper.writeValueAsString(UserSaveRequestDto.builder()
+		String content = objectMapper.writeValueAsString(MemberSaveRequestDto.builder()
 			.userId("test1")
 			.name("최현우")
 			.email("chlgusdn3@naver.com")

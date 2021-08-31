@@ -12,15 +12,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.example.demo.user.constant.GenderType;
+import com.example.demo.member.constant.GenderType;
+import com.example.demo.member.domain.Member;
+import com.example.demo.member.domain.MemberRepository;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class UserRepositoryTest {
+class MemberRepositoryTest {
 
 	@Autowired
-	private UserRepository userRepository;
+	private MemberRepository memberRepository;
 
 
 	@AfterAll
@@ -38,7 +40,7 @@ class UserRepositoryTest {
 		GenderType gender =  GenderType.MALE;
 		String birthday = "19901015";
 
-		User user = userRepository.save(User.builder()
+		Member member = memberRepository.save(Member.builder()
 			.userId(userId)
 			.name(name)
 			.email(email)
@@ -49,14 +51,14 @@ class UserRepositoryTest {
 			.build());
 
 		String changeName = "최현우";
-		User user2 = userRepository.save(User.builder()
-			.id(user.getId())
+		Member member2 = memberRepository.save(Member.builder()
+			.id(member.getId())
 			.name(changeName)
 			.build());
 
-		List<User> userList = userRepository.findAll();
+		List<Member> memberList = memberRepository.findAll();
 
-		assertEquals(1, userList.size());
-		assertEquals(changeName, userList.get(0).getName());
+		assertEquals(1, memberList.size());
+		assertEquals(changeName, memberList.get(0).getName());
 	}
 }

@@ -1,13 +1,13 @@
-package com.example.demo.user.dto.res;
+package com.example.demo.member.dto.res;
 
-import com.example.demo.user.constant.GenderType;
+import com.example.demo.member.constant.GenderType;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
-public class UserResponseDto {
+public class MemberResponseDto {
 	private long id;
 	private String name;
 	private String email;

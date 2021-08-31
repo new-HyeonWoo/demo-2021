@@ -1,4 +1,4 @@
-package com.example.demo.user.constant;
+package com.example.demo.member.constant;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
