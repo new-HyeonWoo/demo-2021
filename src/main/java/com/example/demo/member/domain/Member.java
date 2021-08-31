@@ -1,5 +1,6 @@
 package com.example.demo.member.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -7,7 +8,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
+import com.example.demo.common.utils.auth.Salt;
 import com.example.demo.common.constant.auth.UserRole;
 import com.example.demo.member.constant.GenderType;
 import com.example.demo.member.constant.MemberStatus;
@@ -16,10 +20,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Setter
 @Builder
 @Entity
 public class Member {
@@ -37,7 +43,7 @@ public class Member {
 	@Column
 	private String name;
 
-	@Column
+	@Column(unique = true)
 	private String email;
 
 	@Column
@@ -59,6 +65,10 @@ public class Member {
 	@Column(name = "role")
 	@Enumerated(EnumType.STRING)
 	private UserRole role = UserRole.ROLE_NOT_PERMITTED;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "salt_id")
+	private Salt salt;
 
 	// @Temporal(TemporalType.DATE)
 	// @CreationTimestamp
