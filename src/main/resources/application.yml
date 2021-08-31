@@ -27,18 +27,18 @@ spring:
   redis:
     host: "127.0.0.1"
     port: 6379
-    jedis:
+    lettuce:
       pool:
         max-active: 8 # pool에 할당될 수 있는 커넥션 최대수
         max-idle: 8 # pool의 "idle" 커넥션 최대수
         min-idle: 2 # 풀에서 관리하는 idle 커넥션의 최소 수 대상
-#        max-wait: # pool이 바닥났을 때 예외발생 전에 커넥션 할당 차단의 최대 시간 (단위: 밀리세컨드, 음수는 무제한 차단)
+  #      max-wait: # pool이 바닥났을 때 예외발생 전에 커넥션 할당 차단의 최대 시간 (단위: 밀리세컨드, 음수는 무제한 차단)
   cache:
     type: redis
 
 # Jwt
 jwt:
-  secret: # secret key
+  secret: jwtsecret # secret key
   token-scounds: # token 만료 시간
   refrest-token-secounds: #refrest token 만료 시간
 

@@ -18,7 +18,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.example.demo.common.constant.error.ErrorCode;
 import com.example.demo.common.exception.SampleException;
-import com.example.demo.common.utils.CustomUserDetailService;
+import com.example.demo.common.config.security.CustomUserDetailService;
 import com.example.demo.common.utils.cookie.CookieUtil;
 import com.example.demo.common.utils.jwt.JwtUtil;
 import com.example.demo.common.utils.redis.RedisUtil;
@@ -82,20 +82,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 			log.error("token valid error: {}", e);
 			throw new RuntimeException("");
 		}
-
-		// refreshToken
-		// try {
-		// 	username = redisUtil.getData(refreshToken);
-		// } catch (IllegalArgumentException e) {
-		// 	log.error("", e);
-		//
-		// } catch (ExpiredJwtException e) {
-		// 	log.error("", e);
-		//
-		// } catch (Exception e) {
-		// 	log.error("", e);
-		// }
-
 		filterChain.doFilter(request, response);
 	}
 }
