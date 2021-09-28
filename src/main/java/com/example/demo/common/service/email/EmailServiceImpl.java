@@ -10,14 +10,14 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class EmailServiceImpl implements EmailService {
 
-	private final JavaMailSender mailSender;
+	// private final JavaMailSender mailSender;
 
 	@Override
 	public void sendMail(String to, String sub, String text) {
-		SimpleMailMessage message = new SimpleMailMessage();
-		message.setTo(to);
-		message.setSubject(sub);
-		message.setText(text);
-		mailSender.send(message);
+		// SimpleMailMessage message = new SimpleMailMessage();
+		// message.setTo(to);
+		// message.setSubject(sub);
+		// message.setText(text);
+		// mailSender.send(message);
 	}
 }

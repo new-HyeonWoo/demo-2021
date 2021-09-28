@@ -44,8 +44,16 @@ jwt:
 
 
 server:
+  port: 8080
   compression:
     enabled: false
     mime-types:
   ssl:
     enabled: false
+    # key-store:
+    # key-store-password:
+    # key-password:
+
+# logging level
+#logging:
+#  level: info

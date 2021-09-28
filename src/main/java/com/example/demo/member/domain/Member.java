@@ -62,6 +62,7 @@ public class Member {
 	@Column
 	private MemberStatus status;
 
+	@Builder.Default
 	@Column(name = "role")
 	@Enumerated(EnumType.STRING)
 	private UserRole role = UserRole.ROLE_NOT_PERMITTED;
